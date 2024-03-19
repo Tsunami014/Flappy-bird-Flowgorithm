@@ -4,29 +4,71 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Tsunami014"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-03-19 02:02:54 PM"/>
+        <attribute name="saved" value="2024-03-19 02:30:11 PM"/>
         <attribute name="created" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzExOjE0OjI1IEFNOzMxMTk="/>
-        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzAyOjAyOjU0IFBNOzExOzMyOTA="/>
+        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzAyOjMwOjExIFBNOzI3OzMyOTE="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
             <declare name="out" type="String" array="False" size=""/>
+            <declare name="y" type="Real" array="False" size=""/>
+            <assign variable="y" expression="10"/>
             <output expression="&quot;Press enter to start!&quot;" newline="True"/>
             <input variable="out"/>
-            <while expression="out != &quot;quit&quot;">
+            <while expression="true">
                 <input variable="out"/>
-                <call expression="tick(out != &quot;&quot;)"/>
+                <if expression="out != &quot;&quot;">
+                    <then>
+                        <assign variable="y" expression="y + 2"/>
+                    </then>
+                    <else/>
+                </if>
+                <assign variable="y" expression="y - 0.5"/>
+                <output expression="MakeScreen(Int(y))" newline="True"/>
             </while>
             <output expression="&quot;Thanks for playing!&quot;" newline="True"/>
         </body>
     </function>
-    <function name="tick" type="None" variable="">
+    <function name="MakeScreen" type="String" variable="screen">
         <parameters>
-            <parameter name="input" type="Boolean" array="False"/>
+            <parameter name="y" type="Integer" array="False"/>
         </parameters>
         <body>
-            <output expression="&quot;INPUT: &quot; &amp; input" newline="True"/>
+            <declare name="screen" type="String" array="False" size=""/>
+            <declare name="Col" type="String" array="True" size="20"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="19" direction="inc" step="1">
+                <if expression="i == y">
+                    <then>
+                        <assign variable="Col[i]" expression="&quot;+&quot;"/>
+                    </then>
+                    <else>
+                        <assign variable="Col[i]" expression="&quot;-&quot;"/>
+                    </else>
+                </if>
+            </for>
+            <assign variable="screen" expression="Render(Col, false)"/>
+        </body>
+    </function>
+    <function name="Render" type="String" variable="out">
+        <parameters>
+            <parameter name="arr" type="String" array="True"/>
+            <parameter name="isRow" type="Boolean" array="False"/>
+        </parameters>
+        <body>
+            <declare name="out" type="String" array="False" size=""/>
+            <assign variable="out" expression="&quot;&quot;"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="Size(arr)-1" direction="inc" step="1">
+                <assign variable="out" expression="out &amp; arr[i]"/>
+                <if expression="isRow">
+                    <then/>
+                    <else>
+                        <assign variable="out" expression="out &amp; &quot;\n&quot;"/>
+                    </else>
+                </if>
+            </for>
         </body>
     </function>
 </flowgorithm>
