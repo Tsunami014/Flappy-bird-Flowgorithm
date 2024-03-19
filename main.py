@@ -1,8 +1,9 @@
 import keyboard
 from time import sleep
-print('Press enter to play! BE CAREFUL, PRESSING ENTER ANYWHERE ELSE WILL BREAK YOUR COMPUTER')
+print('Now launch up a game! REMEMBER TO ALWAYS PRESS THE Q KEY TO EXIT THE PROGRAM!')
 for key in list('failsafe'):
-    keyboard.wait(key)
+    while not keyboard.is_pressed(key):
+        pass
 keyboard.wait('enter')
 while True:
     if keyboard.is_pressed('q'):
@@ -14,6 +15,6 @@ while True:
         
         key = True
     if key:
-        keyboard.press_and_release('w')
+        keyboard.press_and_release(' ')
     keyboard.press_and_release('enter')
     sleep(0.1)
