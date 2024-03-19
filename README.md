@@ -1,6 +1,8 @@
 # Advanced flowgorithm projects
 All coded in flowgorithm, with a python script to make the game playable
 
+**THESE ARE A WORK IN PROGRESS**
+
 ## Currently includes:
 ### Flappy bird
 
