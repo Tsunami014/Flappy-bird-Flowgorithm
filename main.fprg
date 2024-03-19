@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Tsunami014"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-03-19 02:02:54 PM"/>
+        <attribute name="created" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzExOjE0OjI1IEFNOzMxMTk="/>
+        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzAyOjAyOjU0IFBNOzExOzMyOTA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="out" type="String" array="False" size=""/>
+            <output expression="&quot;Press enter to start!&quot;" newline="True"/>
+            <input variable="out"/>
+            <while expression="out != &quot;quit&quot;">
+                <input variable="out"/>
+                <call expression="tick(out != &quot;&quot;)"/>
+            </while>
+            <output expression="&quot;Thanks for playing!&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="tick" type="None" variable="">
+        <parameters>
+            <parameter name="input" type="Boolean" array="False"/>
+        </parameters>
+        <body>
+            <output expression="&quot;INPUT: &quot; &amp; input" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
