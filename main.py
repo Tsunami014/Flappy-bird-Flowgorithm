@@ -1,6 +1,8 @@
 import keyboard
 from time import sleep
 print('Press enter to play! BE CAREFUL, PRESSING ENTER ANYWHERE ELSE WILL BREAK YOUR COMPUTER')
+for key in list('failsafe'):
+    keyboard.wait(key)
 keyboard.wait('enter')
 while True:
     if keyboard.is_pressed('q'):

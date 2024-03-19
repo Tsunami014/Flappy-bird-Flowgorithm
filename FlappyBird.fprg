@@ -4,18 +4,17 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Tsunami014"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-03-19 04:33:37 PM"/>
+        <attribute name="saved" value="2024-03-19 04:39:21 PM"/>
         <attribute name="created" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzExOjE0OjI1IEFNOzMxMTk="/>
-        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzA0OjMzOjM3IFBNOzQ4OzMzMDc="/>
+        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzA0OjM5OjIxIFBNOzUwOzMyOTk="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
+            <call expression="failsafe"/>
             <declare name="out" type="String" array="False" size=""/>
             <declare name="y" type="Real" array="False" size=""/>
             <assign variable="y" expression="5"/>
-            <output expression="&quot;Press enter to start!&quot;" newline="True"/>
-            <input variable="out"/>
             <declare name="loose" type="Boolean" array="False" size=""/>
             <assign variable="loose" expression="false"/>
             <while expression="not loose">
@@ -43,6 +42,17 @@
                 <output expression="MakeScreen(Int(y))" newline="True"/>
             </while>
             <output expression="&quot;You loose! Better luck next time.&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="Failsafe" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="input" type="String" array="False" size=""/>
+            <assign variable="input" expression="&quot;&quot;"/>
+            <output expression="&quot;Please type 'failsafe' and press enter to start playing!&quot;" newline="True"/>
+            <while expression="input != &quot;failsafe&quot;">
+                <input variable="input"/>
+            </while>
         </body>
     </function>
     <function name="MakePipe" type="String" variable="out">
