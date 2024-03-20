@@ -21,7 +21,7 @@
                 <input variable="out"/>
                 <if expression="out != &quot;&quot;">
                     <then>
-                        <assign variable="y" expression="y - 2"/>
+                        <assign variable="y" expression="y - 0.8"/>
                     </then>
                     <else/>
                 </if>
