@@ -17,4 +17,4 @@ while True:
     if key:
         keyboard.press_and_release(' ')
     keyboard.press_and_release('enter')
-    sleep(0.1)
+    sleep(0.3)
