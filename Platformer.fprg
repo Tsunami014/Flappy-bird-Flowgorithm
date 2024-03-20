@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Tsunami014"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-03-20 08:37:03 PM"/>
+        <attribute name="created" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzExOjE0OjI1IEFNOzMxMTk="/>
+        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTIwOzA4OjM3OjAzIFBNOzkwOzMyOTc="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <call expression="failsafe"/>
+            <output expression="&quot;Still in development. Check back later!&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="Failsafe" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="input" type="String" array="False" size=""/>
+            <assign variable="input" expression="&quot;&quot;"/>
+            <output expression="&quot;Please type 'failsafe' and press enter to start playing!&quot;" newline="True"/>
+            <while expression="input != &quot;failsafe&quot;">
+                <input variable="input"/>
+            </while>
+        </body>
+    </function>
+    <function name="Render" type="String" variable="out">
+        <parameters>
+            <parameter name="arr" type="String" array="True"/>
+            <parameter name="isRow" type="Boolean" array="False"/>
+        </parameters>
+        <body>
+            <declare name="out" type="String" array="False" size=""/>
+            <assign variable="out" expression="&quot;&quot;"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <if expression="isRow">
+                <then>
+                    <declare name="length" type="Integer" array="False" size=""/>
+                    <assign variable="length" expression="0"/>
+                    <for variable="i" start="0" end="Size(arr)-1" direction="inc" step="1">
+                        <if expression="Len(arr[i]) &gt; length">
+                            <then>
+                                <assign variable="length" expression="Len(arr[i])"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </for>
+                    <declare name="j" type="Integer" array="False" size=""/>
+                    <declare name="anyInRow" type="Boolean" array="False" size=""/>
+                    <for variable="i" start="0" end="length-1" direction="inc" step="1">
+                        <assign variable="anyInRow" expression="false"/>
+                        <for variable="j" start="0" end="Size(arr)-1" direction="inc" step="1">
+                            <if expression="Len(arr[j]) &gt; i*2">
+                                <then>
+                                    <assign variable="out" expression="out &amp; Char(arr[j], i*2)"/>
+                                    <assign variable="anyInRow" expression="true"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </for>
+                        <if expression="anyInRow">
+                            <then>
+                                <assign variable="out" expression="out &amp; ToChar(13)"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </for>
+                </then>
+                <else>
+                    <for variable="i" start="0" end="Size(arr)-1" direction="inc" step="1">
+                        <assign variable="out" expression="out &amp; arr[i] &amp; ToChar(13)"/>
+                    </for>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
