@@ -8,13 +8,22 @@ keyboard.wait('enter')
 while True:
     if keyboard.is_pressed('q'):
         break
-    key = False
     if keyboard.is_pressed('up') or \
+       keyboard.is_pressed('w') or \
        keyboard.is_pressed('space') or \
        keyboard.is_pressed('enter'):
         
-        key = True
-    if key:
-        keyboard.press_and_release(' ')
+        keyboard.press_and_release('w')
+    
+    if keyboard.is_pressed('left') or \
+       keyboard.is_pressed('d'):
+        
+        keyboard.press_and_release('d')
+    
+    if keyboard.is_pressed('right') or \
+       keyboard.is_pressed('a'):
+        
+        keyboard.press_and_release('a')
+    
     keyboard.press_and_release('enter')
     sleep(0.3)

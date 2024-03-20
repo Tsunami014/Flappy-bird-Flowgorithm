@@ -4,15 +4,35 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Tsunami014"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-03-20 08:37:03 PM"/>
+        <attribute name="saved" value="2024-03-20 08:45:17 PM"/>
         <attribute name="created" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzExOjE0OjI1IEFNOzMxMTk="/>
-        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTIwOzA4OjM3OjAzIFBNOzkwOzMyOTc="/>
+        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTIwOzA4OjQ1OjE3IFBNOzkzOzMzMDQ="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
             <call expression="failsafe"/>
-            <output expression="&quot;Still in development. Check back later!&quot;" newline="True"/>
+            <declare name="player" type="Integer" array="True" size="2"/>
+            <assign variable="player[0]" expression="0"/>
+            <declare name="inp" type="String" array="False" size=""/>
+            <declare name="run" type="Boolean" array="False" size=""/>
+            <assign variable="run" expression="true"/>
+            <while expression="run">
+                <input variable="inp"/>
+                <if expression="isIn(inp, &quot;d&quot;)">
+                    <then>
+                        <assign variable="player[0]" expression="player[0] + 1"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="isIn(inp, &quot;a&quot;)">
+                    <then>
+                        <assign variable="player[0]" expression="player[0] - 1"/>
+                    </then>
+                    <else/>
+                </if>
+                <output expression="&quot;Player pos: &quot; &amp; player[0]" newline="True"/>
+            </while>
         </body>
     </function>
     <function name="Failsafe" type="None" variable="">
@@ -24,6 +44,30 @@
             <while expression="input != &quot;failsafe&quot;">
                 <input variable="input"/>
             </while>
+        </body>
+    </function>
+    <function name="isIn" type="Boolean" variable="in">
+        <parameters>
+            <parameter name="str" type="String" array="False"/>
+            <parameter name="subchar" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="in" type="Boolean" array="False" size=""/>
+            <assign variable="in" expression="false"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="Len(str)-1" direction="inc" step="1">
+                <if expression="in">
+                    <then/>
+                    <else>
+                        <if expression="Char(str, i) == subchar">
+                            <then>
+                                <assign variable="in" expression="true"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </else>
+                </if>
+            </for>
         </body>
     </function>
     <function name="Render" type="String" variable="out">
