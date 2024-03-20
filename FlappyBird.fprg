@@ -4,9 +4,9 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Tsunami014"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-03-19 04:39:21 PM"/>
+        <attribute name="saved" value="2024-03-20 12:40:27 PM"/>
         <attribute name="created" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzExOjE0OjI1IEFNOzMxMTk="/>
-        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzA0OjM5OjIxIFBNOzUwOzMyOTk="/>
+        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTIwOzEyOjQwOjI3IFBNOzYzOzMyOTI="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -17,11 +17,18 @@
             <assign variable="y" expression="5"/>
             <declare name="loose" type="Boolean" array="False" size=""/>
             <assign variable="loose" expression="false"/>
+            <declare name="world" type="Integer" array="True" size="20"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="Size(world)-1" direction="inc" step="1">
+                <assign variable="world[i]" expression="0"/>
+            </for>
+            <declare name="change" type="Integer" array="False" size=""/>
+            <assign variable="change" expression="5"/>
             <while expression="not loose">
                 <input variable="out"/>
                 <if expression="out != &quot;&quot;">
                     <then>
-                        <assign variable="y" expression="y - 2"/>
+                        <assign variable="y" expression="y - 1"/>
                     </then>
                     <else/>
                 </if>
@@ -39,7 +46,24 @@
                         </if>
                     </else>
                 </if>
-                <output expression="MakeScreen(Int(y))" newline="True"/>
+                <assign variable="change" expression="change - 1"/>
+                <if expression="change &lt;= 0">
+                    <then>
+                        <assign variable="change" expression="5"/>
+                        <for variable="i" start="0" end="Size(world)-1" direction="inc" step="1">
+                            <if expression="i == Size(world) - 1">
+                                <then>
+                                    <assign variable="world[i]" expression="Random(12) + 1"/>
+                                </then>
+                                <else>
+                                    <assign variable="world[i]" expression="world[i+1]"/>
+                                </else>
+                            </if>
+                        </for>
+                    </then>
+                    <else/>
+                </if>
+                <output expression="MakeScreen(Int(y), world)" newline="True"/>
             </while>
             <output expression="&quot;You loose! Better luck next time.&quot;" newline="True"/>
         </body>
@@ -72,7 +96,7 @@
                     <else>
                         <if expression="Abs(i - height) &lt; PipeGapHeight+1 &amp;&amp; Abs(i - height) == i - height">
                             <then>
-                                <assign variable="outL[i]" expression="&quot;T&quot;"/>
+                                <assign variable="outL[i]" expression="&quot;&#9523;&quot;"/>
                             </then>
                             <else>
                                 <if expression="Abs(i - height) &lt; PipeGapHeight+1 &amp;&amp; Abs(i - height) != i - height">
@@ -95,9 +119,10 @@
     <function name="MakeScreen" type="String" variable="screen">
         <parameters>
             <parameter name="y" type="Integer" array="False"/>
+            <parameter name="world" type="Integer" array="True"/>
         </parameters>
         <body>
-            <declare name="AllCols" type="String" array="True" size="2"/>
+            <declare name="AllCols" type="String" array="True" size="Size(world)+1"/>
             <declare name="Col" type="String" array="True" size="13"/>
             <declare name="i" type="Integer" array="False" size=""/>
             <for variable="i" start="0" end="Size(Col)-1" direction="inc" step="1">
@@ -111,7 +136,20 @@
                 </if>
             </for>
             <assign variable="AllCols[0]" expression="Render(Col, false)"/>
-            <assign variable="AllCols[1]" expression="MakePipe(5)"/>
+            <declare name="j" type="Integer" array="False" size=""/>
+            <for variable="i" start="1" end="Size(world)" direction="inc" step="1">
+                <if expression="world[i-1] == 0">
+                    <then>
+                        <assign variable="AllCols[i]" expression="&quot;&quot;"/>
+                        <for variable="j" start="0" end="24" direction="inc" step="1">
+                            <assign variable="AllCols[i]" expression="AllCols[i] &amp; &quot; &quot;"/>
+                        </for>
+                    </then>
+                    <else>
+                        <assign variable="AllCols[i]" expression="MakePipe(world[i-1])"/>
+                    </else>
+                </if>
+            </for>
             <declare name="screen" type="String" array="False" size=""/>
             <assign variable="screen" expression="Render(AllCols, true)"/>
         </body>
