@@ -15,13 +15,13 @@ def cleanFile(file):
 # inp = input("Enter game to update world of ('Platformer'): ")
 # if inp == "Platformer":
 
-assign = "            <assign variable=\"world1[0]\" expression=\"&quot;{0}&quot;\"/>\n"
+assign = "            <assign variable=\"world1[{1}]\" expression=\"&quot;{0}&quot;\"/>\n"
 
 newdata = ""
 with open('data/level1.txt', 'r') as f:
     data = f.readlines()
-    for i in range(len(data)):
-        newdata += assign.format(data[i].strip('\n'))
+    for i in range(len(data[:12])):
+        newdata += assign.format(data[i].strip('\n'), str(i))
 
 cleanFile('data/level1.txt')
 with open('Platformer.fprg', 'r') as f:
