@@ -4,9 +4,9 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Tsunami014"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-03-20 08:45:17 PM"/>
+        <attribute name="saved" value="2024-03-20 08:49:44 PM"/>
         <attribute name="created" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzExOjE0OjI1IEFNOzMxMTk="/>
-        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTIwOzA4OjQ1OjE3IFBNOzkzOzMzMDQ="/>
+        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTIwOzA4OjQ5OjQ0IFBNOzk1OzMzMTA="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -44,6 +44,22 @@
             <while expression="input != &quot;failsafe&quot;">
                 <input variable="input"/>
             </while>
+        </body>
+    </function>
+    <function name="GetLevel" type="String" variable="screen">
+        <parameters>
+            <parameter name="Xpos" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="screen" type="String" array="False" size=""/>
+            <declare name="world1" type="String" array="True" size="12"/>
+            <comment text="Auto generated code below"/>
+            <assign variable="world1[0]" expression="&quot;                                               &quot;"/>
+            <assign variable="world1[0]" expression="&quot;                                               &quot;"/>
+            <assign variable="world1[0]" expression="&quot;               #                               &quot;"/>
+            <assign variable="world1[0]" expression="&quot;   # S  #    #####     E     F                 &quot;"/>
+            <assign variable="world1[0]" expression="&quot;##################################            &quot;"/>
+            <comment text="Auto generated code above"/>
         </body>
     </function>
     <function name="isIn" type="Boolean" variable="in">

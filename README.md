@@ -23,3 +23,5 @@ https://github.com/Tsunami014/Flowgorithm-advanced/assets/96847801/1527ee55-dfcf
 
 ## Platformer
 **STILL IN EARLY STAGES OF DEVELOPMENT**, no demo yet sorry!
+
+To edit the worlds you need to run `GenerateWorld.py` which will fill in the flowgorithm file with the world info as needed!
