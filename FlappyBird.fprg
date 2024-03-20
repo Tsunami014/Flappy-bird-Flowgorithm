@@ -4,9 +4,9 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Tsunami014"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-03-20 03:51:37 PM"/>
+        <attribute name="saved" value="2024-03-20 04:02:16 PM"/>
         <attribute name="created" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzExOjE0OjI1IEFNOzMxMTk="/>
-        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTIwOzAzOjUxOjM3IFBNOzg2OzMzMDA="/>
+        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTIwOzA0OjAyOjE2IFBNOzg4OzMyOTY="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -38,9 +38,9 @@
                         <assign variable="y" expression="y + 0.5"/>
                     </else>
                 </if>
-                <if expression="y &gt;= 12">
+                <if expression="y &gt;= 11">
                     <then>
-                        <assign variable="y" expression="12"/>
+                        <assign variable="y" expression="11"/>
                     </then>
                     <else>
                         <if expression="y &lt;= 0">
@@ -53,8 +53,9 @@
                 </if>
                 <if expression="world[0] != 0">
                     <then>
-                        <if expression="Abs(y - world[0]) &gt; 1">
+                        <if expression="Abs(Int(y) - world[0]) &gt; 2">
                             <then>
+                                <assign variable="score" expression="world[0]"/>
                                 <assign variable="loose" expression="true"/>
                             </then>
                             <else>
