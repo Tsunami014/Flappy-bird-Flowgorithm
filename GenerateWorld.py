@@ -3,10 +3,11 @@ import re
 def cleanFile(file):
     with open(file, 'r') as f:
         lines = f.readlines()
-        top = max([len(i) for i in lines])
+        top = max([len(i.rstrip(' \n')) for i in lines])
         for i in range(len(lines)):
+            lines[i] = lines[i].rstrip(' \n')
             if len(lines[i]) < top:
-                lines[i] = lines[i].strip('\n') + " " * ((top - len(lines[i]))+1) + '\n'
+                lines[i] = lines[i] + " " * ((top - len(lines[i]))) + '\n'
         with open(file, 'w') as f:
             f.writelines(lines)
 

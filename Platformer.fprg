@@ -54,11 +54,11 @@
             <declare name="screen" type="String" array="False" size=""/>
             <declare name="world1" type="String" array="True" size="12"/>
             <comment text="Auto generated code below"/>
-            <assign variable="world1[0]" expression="&quot;                                               &quot;"/>
-            <assign variable="world1[0]" expression="&quot;                                               &quot;"/>
-            <assign variable="world1[0]" expression="&quot;               #                               &quot;"/>
-            <assign variable="world1[0]" expression="&quot;   # S  #    #####     E     F                 &quot;"/>
-            <assign variable="world1[0]" expression="&quot;##################################            &quot;"/>
+            <assign variable="world1[0]" expression="&quot;                                  &quot;"/>
+            <assign variable="world1[0]" expression="&quot;                                  &quot;"/>
+            <assign variable="world1[0]" expression="&quot;               #                  &quot;"/>
+            <assign variable="world1[0]" expression="&quot;   # S  #    #####     E     F    &quot;"/>
+            <assign variable="world1[0]" expression="&quot;##################################&quot;"/>
             <comment text="Auto generated code above"/>
         </body>
     </function>
