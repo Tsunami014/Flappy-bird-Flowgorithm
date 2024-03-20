@@ -4,9 +4,9 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Tsunami014"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-03-20 02:43:56 PM"/>
+        <attribute name="saved" value="2024-03-20 02:46:58 PM"/>
         <attribute name="created" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzExOjE0OjI1IEFNOzMxMTk="/>
-        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTIwOzAyOjQzOjU2IFBNOzY4OzMzMDE="/>
+        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTIwOzAyOjQ2OjU4IFBNOzY5OzMzMDc="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -79,7 +79,7 @@
                 </for>
                 <output expression="MakeScreen(Int(y), world)" newline="True"/>
             </while>
-            <output expression="&quot;You loose! Better luck next time.&quot;" newline="True"/>
+            <output expression="&quot;You loose! Better luck next time. Remember to press the Q key to quit the python program too!&quot;" newline="True"/>
         </body>
     </function>
     <function name="Failsafe" type="None" variable="">
