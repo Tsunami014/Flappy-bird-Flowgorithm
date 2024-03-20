@@ -4,9 +4,9 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Tsunami014"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-03-20 02:46:58 PM"/>
+        <attribute name="saved" value="2024-03-20 03:09:02 PM"/>
         <attribute name="created" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzExOjE0OjI1IEFNOzMxMTk="/>
-        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTIwOzAyOjQ2OjU4IFBNOzY5OzMzMDc="/>
+        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTIwOzAzOjA5OjAyIFBNOzc5OzMyOTc="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -77,7 +77,12 @@
                         </else>
                     </if>
                 </for>
-                <output expression="MakeScreen(Int(y), world)" newline="True"/>
+                <if expression="loose">
+                    <then/>
+                    <else>
+                        <output expression="MakeScreen(Int(y), world)" newline="True"/>
+                    </else>
+                </if>
             </while>
             <output expression="&quot;You loose! Better luck next time. Remember to press the Q key to quit the python program too!&quot;" newline="True"/>
         </body>
@@ -136,23 +141,11 @@
             <parameter name="world" type="Integer" array="True"/>
         </parameters>
         <body>
-            <declare name="AllCols" type="String" array="True" size="Size(world)+1"/>
-            <declare name="Col" type="String" array="True" size="13"/>
+            <declare name="AllCols" type="String" array="True" size="Size(world)"/>
             <declare name="i" type="Integer" array="False" size=""/>
-            <for variable="i" start="0" end="Size(Col)-1" direction="inc" step="1">
-                <if expression="i == y">
-                    <then>
-                        <assign variable="Col[i]" expression="&quot;B&quot;"/>
-                    </then>
-                    <else>
-                        <assign variable="Col[i]" expression="&quot; &quot;"/>
-                    </else>
-                </if>
-            </for>
-            <assign variable="AllCols[0]" expression="Render(Col, false)"/>
             <declare name="j" type="Integer" array="False" size=""/>
-            <for variable="i" start="1" end="Size(world)" direction="inc" step="1">
-                <if expression="world[i-1] == 0">
+            <for variable="i" start="0" end="Size(world)-1" direction="inc" step="1">
+                <if expression="world[i] == 0">
                     <then>
                         <assign variable="AllCols[i]" expression="&quot;&quot;"/>
                         <for variable="j" start="0" end="24" direction="inc" step="1">
@@ -160,10 +153,23 @@
                         </for>
                     </then>
                     <else>
-                        <assign variable="AllCols[i]" expression="MakePipe(world[i-1])"/>
+                        <assign variable="AllCols[i]" expression="MakePipe(world[i])"/>
                     </else>
                 </if>
             </for>
+            <declare name="out" type="String" array="False" size=""/>
+            <assign variable="out" expression="&quot;&quot;"/>
+            <for variable="i" start="0" end="Len(AllCols[0])-1" direction="inc" step="1">
+                <if expression="i == y*2">
+                    <then>
+                        <assign variable="out" expression="out &amp; &quot;B&quot;"/>
+                    </then>
+                    <else>
+                        <assign variable="out" expression="out &amp; Char(AllCols[0], i)"/>
+                    </else>
+                </if>
+            </for>
+            <assign variable="AllCols[0]" expression="out"/>
             <declare name="screen" type="String" array="False" size=""/>
             <assign variable="screen" expression="Render(AllCols, true)"/>
         </body>
