@@ -4,9 +4,9 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Tsunami014"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-03-20 12:40:27 PM"/>
+        <attribute name="saved" value="2024-03-20 12:45:58 PM"/>
         <attribute name="created" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTE5OzExOjE0OjI1IEFNOzMxMTk="/>
-        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTIwOzEyOjQwOjI3IFBNOzYzOzMyOTI="/>
+        <attribute name="edited" value="VHN1bmFtaTAxNDtNQVgtVFNVTkFNSTAxNDsyMDI0LTAzLTIwOzEyOjQ1OjU4IFBNOzY0OzMzMDI="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -24,6 +24,8 @@
             </for>
             <declare name="change" type="Integer" array="False" size=""/>
             <assign variable="change" expression="5"/>
+            <declare name="gap" type="Integer" array="False" size=""/>
+            <assign variable="gap" expression="0"/>
             <while expression="not loose">
                 <input variable="out"/>
                 <if expression="out != &quot;&quot;">
@@ -53,7 +55,16 @@
                         <for variable="i" start="0" end="Size(world)-1" direction="inc" step="1">
                             <if expression="i == Size(world) - 1">
                                 <then>
-                                    <assign variable="world[i]" expression="Random(12) + 1"/>
+                                    <if expression="gap == 0">
+                                        <then>
+                                            <assign variable="world[i]" expression="Random(12) + 1"/>
+                                            <assign variable="gap" expression="4"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="gap" expression="gap - 1"/>
+                                            <assign variable="world[i]" expression="0"/>
+                                        </else>
+                                    </if>
                                 </then>
                                 <else>
                                     <assign variable="world[i]" expression="world[i+1]"/>
