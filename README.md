@@ -1,6 +1,9 @@
 # Advanced flowgorithm projects
 All coded in flowgorithm, with a python script to make the game playable
 
+> [!note]
+> I may not be active on this because I now use Linux and also couldn't be bothered to go through pain again when I'm doing other things, but you never know.
+
 These need a separate python program to be run alongside them to actually have a non-stop game (until you loose) but you can just spam enter, that kinda works too
 
 Please ignore the fact that sometimes if the tick rate for the Python program isn't right Flowgorithm just straight-up ignores the input
